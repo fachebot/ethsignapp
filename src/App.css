@@ -1,0 +1,50 @@
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.App {
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.App-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.Wallet-address {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.App-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Signature {
+    margin-top: 20px;
+    text-align: left;
+    word-wrap: break-word;
+    max-width: 500px;
+}
+
+.SignButton {
+    margin: 20px 0;
+}
