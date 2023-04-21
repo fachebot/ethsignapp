@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Input, message } from "antd";
 import { ethers } from "ethers";
 import detectEthereumProvider from "@metamask/detect-provider";
@@ -10,6 +10,14 @@ const App: React.FC = () => {
   const [address, setAddress] = useState<string>();
   const [messageToSign, setMessageToSign] = useState<string>("");
   const [signature, setSignature] = useState<string>("");
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const messageParam = params.get("message");
+    if (messageParam) {
+      setMessageToSign(messageParam);
+    }
+  }, []);
 
   const connectWallet = async () => {
     const provider = await detectEthereumProvider();
