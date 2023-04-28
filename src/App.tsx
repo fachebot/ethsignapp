@@ -22,12 +22,13 @@ const App: React.FC = () => {
   const connectWallet = async () => {
     const provider = await detectEthereumProvider();
     if (provider) {
-      const newProvider = new ethers.providers.Web3Provider(provider);
       try {
-        const signer = newProvider.getSigner();
-        const newAddress = await signer.getAddress();
-        setProvider(newProvider);
-        setAddress(newAddress);
+        const web3Provider = new ethers.providers.Web3Provider(provider);
+        await web3Provider.send('eth_requestAccounts', []);
+
+        const signer = web3Provider.getSigner();
+        setProvider(web3Provider);
+        setAddress(await signer.getAddress());
       } catch (error) {
         message.error("Failed to connect wallet.");
         console.error(error);
